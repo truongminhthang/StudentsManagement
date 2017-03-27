@@ -15,10 +15,10 @@ class Student: NSObject {
     
     init?(name: String, phoneNumber: String) {
         guard name != "" else {return nil}
-        guard phoneNumber.characters.count > 10 else {return nil}
+        guard phoneNumber.characters.count >= 10 else {return nil}
         self.name = name
         self.phoneNumber = phoneNumber
     }
     
-    
 }
+

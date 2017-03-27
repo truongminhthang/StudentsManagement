@@ -48,11 +48,86 @@
                             <outlet property="delegate" destination="Qw9-tw-NCj" id="Drf-0E-5gR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="xU9-wm-F6r"/>
+                    <navigationItem key="navigationItem" id="xU9-wm-F6r">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fsw-rF-8Ni">
+                            <connections>
+                                <segue destination="cDb-hS-5SE" kind="show" id="UZo-le-m36"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGR-SS-qgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="946.39999999999998" y="-185.75712143928038"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="FC4-b6-xz3">
+            <objects>
+                <tableViewController id="cDb-hS-5SE" customClass="StudentDetailsTableVC" customModule="StudentsManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="127" sectionHeaderHeight="28" sectionFooterHeight="28" id="CN4-x8-s0t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="0un-PQ-JYj">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="91" id="LLw-SS-WzW">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="91"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LLw-SS-WzW" id="Hwu-Up-glQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="WND-R6-OUw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90.5"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UjL-mM-X0R">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Số điện thoại" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZED-e7-nfd">
+                                                            <rect key="frame" x="0.0" y="46" width="375" height="44.5"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WND-R6-OUw" firstAttribute="leading" secondItem="Hwu-Up-glQ" secondAttribute="leading" id="Au9-Wn-M6a"/>
+                                                <constraint firstAttribute="bottom" secondItem="WND-R6-OUw" secondAttribute="bottom" id="hC8-Xp-sAG"/>
+                                                <constraint firstAttribute="trailing" secondItem="WND-R6-OUw" secondAttribute="trailing" id="mpL-Xb-2HR"/>
+                                                <constraint firstItem="WND-R6-OUw" firstAttribute="top" secondItem="Hwu-Up-glQ" secondAttribute="top" id="vlr-6F-Pi6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="cDb-hS-5SE" id="n9j-Ku-Oia"/>
+                            <outlet property="delegate" destination="cDb-hS-5SE" id="tMm-z0-pPX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="8mO-Ag-iil">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="GUT-Fo-bG0">
+                            <connections>
+                                <action selector="saveStudent" destination="cDb-hS-5SE" id="emM-Ow-bAy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="UjL-mM-X0R" id="kS5-my-wJb"/>
+                        <outlet property="phoneNumberTextField" destination="ZED-e7-nfd" id="uDW-OC-68b"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hfp-VH-tbm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1832.8" y="-197.45127436281859"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N4w-d9-nOq">

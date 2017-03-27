@@ -31,4 +31,22 @@ class DataServices {
             _students?.append(student)
         }
     }
+    
+    func removeStudent(at index: Int) {
+        _students?.remove(at: index)
+    }
+    
+    func swapStudent(from: Int, to: Int) {
+        guard from != to else {return}
+        guard _students != nil else {return}
+        swap(&_students![from], &_students![to])
+    }
+    
+    func appendStudent(student: Student?) {
+        guard student != nil else {return}
+        _students?.insert(student!, at: 0)
+    }
+    
 }
+
+
