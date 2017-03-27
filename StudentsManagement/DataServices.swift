@@ -11,8 +11,8 @@ import Foundation
 class DataServices {
     static let shared : DataServices = DataServices()
     
-    private var _students : [String]?
-    var students : [String] {
+    private var _students : [Student]?
+    var students : [Student] {
         get {
             if _students == nil {
                 updateStudents()
@@ -25,6 +25,10 @@ class DataServices {
     }
     
     func updateStudents() {
-        _students = ["Tĩnh", "Việt", "Hoàng", "Đức", "Phú"]
+        _students = []
+        for i in Array (0 ... 100) {
+            guard let student = Student(name: "Name \(i)", phoneNumber: "012391801\(i)") else {continue}
+            _students?.append(student)
+        }
     }
 }
