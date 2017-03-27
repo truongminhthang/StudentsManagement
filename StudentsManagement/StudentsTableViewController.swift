@@ -10,8 +10,6 @@ import UIKit
 
 class StudentsTableViewController: UITableViewController {
 
-    var students = ["Tĩnh", "Việt", "Hoàng", "Đức", "Phú"]
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,13 +30,13 @@ class StudentsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return students.count
+        return DataServices.shared.students.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell" , for: indexPath)
-        cell.textLabel?.text = students[indexPath.row]
+        cell.textLabel?.text = DataServices.shared.students[indexPath.row]
         // Configure the cell...
         return cell
     }
