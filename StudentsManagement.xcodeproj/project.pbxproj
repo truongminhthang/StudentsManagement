@@ -14,7 +14,20 @@
 		FF1789C61E8926D20009F8C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF1789C41E8926D20009F8C8 /* LaunchScreen.storyboard */; };
 		FF1789D71E892F620009F8C8 /* StudentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1789D61E892F620009F8C8 /* StudentsTableViewController.swift */; };
 		FF1789D91E89311E0009F8C8 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1789D81E89311E0009F8C8 /* DataServices.swift */; };
+		FF1789DB1E8932A10009F8C8 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1789DA1E8932A10009F8C8 /* Student.swift */; };
+		FF1789E31E89337C0009F8C8 /* StudentsManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1789E21E89337C0009F8C8 /* StudentsManagementTests.swift */; };
+		FF1789EA1E8933BE0009F8C8 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1789DA1E8932A10009F8C8 /* Student.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF1789E51E89337C0009F8C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF1789AD1E8926D20009F8C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF1789B41E8926D20009F8C8;
+			remoteInfo = StudentsManagement;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		FF1789B51E8926D20009F8C8 /* StudentsManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentsManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,10 +39,21 @@
 		FF1789C71E8926D20009F8C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF1789D61E892F620009F8C8 /* StudentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentsTableViewController.swift; sourceTree = "<group>"; };
 		FF1789D81E89311E0009F8C8 /* DataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
+		FF1789DA1E8932A10009F8C8 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		FF1789E01E89337C0009F8C8 /* StudentsManagementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudentsManagementTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF1789E21E89337C0009F8C8 /* StudentsManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsManagementTests.swift; sourceTree = "<group>"; };
+		FF1789E41E89337C0009F8C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FF1789B21E8926D20009F8C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF1789DD1E89337C0009F8C8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				FF1789B71E8926D20009F8C8 /* StudentsManagement */,
+				FF1789E11E89337C0009F8C8 /* StudentsManagementTests */,
 				FF1789B61E8926D20009F8C8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				FF1789B51E8926D20009F8C8 /* StudentsManagement.app */,
+				FF1789E01E89337C0009F8C8 /* StudentsManagementTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,6 +108,7 @@
 		FF1789CE1E8927040009F8C8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FF1789DA1E8932A10009F8C8 /* Student.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -92,6 +119,15 @@
 				FF1789D81E89311E0009F8C8 /* DataServices.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		FF1789E11E89337C0009F8C8 /* StudentsManagementTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF1789E21E89337C0009F8C8 /* StudentsManagementTests.swift */,
+				FF1789E41E89337C0009F8C8 /* Info.plist */,
+			);
+			path = StudentsManagementTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -114,6 +150,24 @@
 			productReference = FF1789B51E8926D20009F8C8 /* StudentsManagement.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FF1789DF1E89337C0009F8C8 /* StudentsManagementTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF1789E71E89337C0009F8C8 /* Build configuration list for PBXNativeTarget "StudentsManagementTests" */;
+			buildPhases = (
+				FF1789DC1E89337C0009F8C8 /* Sources */,
+				FF1789DD1E89337C0009F8C8 /* Frameworks */,
+				FF1789DE1E89337C0009F8C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF1789E61E89337C0009F8C8 /* PBXTargetDependency */,
+			);
+			name = StudentsManagementTests;
+			productName = StudentsManagementTests;
+			productReference = FF1789E01E89337C0009F8C8 /* StudentsManagementTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -128,6 +182,12 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 56AJJ634ZU;
 						ProvisioningStyle = Automatic;
+					};
+					FF1789DF1E89337C0009F8C8 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 56AJJ634ZU;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FF1789B41E8926D20009F8C8;
 					};
 				};
 			};
@@ -145,6 +205,7 @@
 			projectRoot = "";
 			targets = (
 				FF1789B41E8926D20009F8C8 /* StudentsManagement */,
+				FF1789DF1E89337C0009F8C8 /* StudentsManagementTests */,
 			);
 		};
 /* End PBXProject section */
@@ -160,6 +221,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FF1789DE1E89337C0009F8C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -170,11 +238,29 @@
 				FF1789B91E8926D20009F8C8 /* AppDelegate.swift in Sources */,
 				FF1789D91E89311E0009F8C8 /* DataServices.swift in Sources */,
 				FF1789C11E8926D20009F8C8 /* StudentsManagement.xcdatamodeld in Sources */,
+				FF1789DB1E8932A10009F8C8 /* Student.swift in Sources */,
 				FF1789D71E892F620009F8C8 /* StudentsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FF1789DC1E89337C0009F8C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF1789E31E89337C0009F8C8 /* StudentsManagementTests.swift in Sources */,
+				FF1789EA1E8933BE0009F8C8 /* Student.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF1789E61E89337C0009F8C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF1789B41E8926D20009F8C8 /* StudentsManagement */;
+			targetProxy = FF1789E51E89337C0009F8C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FF1789BC1E8926D20009F8C8 /* Main.storyboard */ = {
@@ -317,6 +403,34 @@
 			};
 			name = Release;
 		};
+		FF1789E81E89337C0009F8C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 56AJJ634ZU;
+				INFOPLIST_FILE = StudentsManagementTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Big0.StudentsManagementTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudentsManagement.app/StudentsManagement";
+			};
+			name = Debug;
+		};
+		FF1789E91E89337C0009F8C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 56AJJ634ZU;
+				INFOPLIST_FILE = StudentsManagementTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Big0.StudentsManagementTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudentsManagement.app/StudentsManagement";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -334,6 +448,14 @@
 			buildConfigurations = (
 				FF1789CB1E8926D20009F8C8 /* Debug */,
 				FF1789CC1E8926D20009F8C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FF1789E71E89337C0009F8C8 /* Build configuration list for PBXNativeTarget "StudentsManagementTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF1789E81E89337C0009F8C8 /* Debug */,
+				FF1789E91E89337C0009F8C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
