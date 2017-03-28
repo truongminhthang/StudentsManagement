@@ -20,7 +20,10 @@ class StudentTest: XCTestCase {
         XCTAssertTrue(Student(name: "", phoneNumber: "01239180123") == nil)
         XCTAssertTrue(Student(name: "Thang", phoneNumber: "0123") == nil)
         XCTAssertTrue(Student(name: "", phoneNumber: "") == nil)
+        XCTAssertTrue(Student(name: "Thang1", phoneNumber: "01239180123") == nil)
+        XCTAssertTrue(Student(name: "Thang1", phoneNumber: "012391801a3") == nil)
         XCTAssertTrue(Student(name: "Thang", phoneNumber: "01239180123") != nil)
+
 
     }
     

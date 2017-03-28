@@ -15,7 +15,16 @@ class Student: NSObject {
     
     init?(name: String, phoneNumber: String) {
         guard name != "" else {return nil}
-        guard phoneNumber.characters.count >= 10 else {return nil}
+        var isNameHaveNumber : Bool = false
+        for str in name.characters.map({String($0)}) {
+            if Int(str) != nil {
+                isNameHaveNumber = true
+                break
+            }
+        }
+        guard isNameHaveNumber == false  else { return nil }
+        guard [10,11].contains(phoneNumber.characters.count) else { return nil}
+        guard Int(phoneNumber) != nil else {return nil}
         self.name = name
         self.phoneNumber = phoneNumber
     }
