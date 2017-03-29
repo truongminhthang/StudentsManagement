@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="VU9-tj-gWC">
-                            <rect key="frame" x="0.0" y="82" width="375" height="40"/>
+                            <rect key="frame" x="0.0" y="82" width="375" height="89"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -93,8 +94,29 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="footer" destination="VU9-tj-gWC" id="jnp-w9-O4d"/>
+                        <outlet property="nodataView" destination="MnG-x8-aui" id="dgS-yN-rjB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGR-SS-qgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="MnG-x8-aui">
+                    <rect key="frame" x="0.0" y="0.0" width="365" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have no data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZv-Mx-vLR">
+                            <rect key="frame" x="130.5" y="32" width="104.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="ZZv-Mx-vLR" firstAttribute="centerX" secondItem="MnG-x8-aui" secondAttribute="centerX" id="W2I-D0-Qgh"/>
+                        <constraint firstItem="ZZv-Mx-vLR" firstAttribute="centerY" secondItem="MnG-x8-aui" secondAttribute="centerY" multiplier="2/3" id="aJk-Ur-8hG"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="946.39999999999998" y="-185.75712143928038"/>
         </scene>
@@ -198,7 +220,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tạo liên hệ mới" id="8mO-Ag-iil">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="E7z-5u-blm"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="E7z-5u-blm">
+                            <connections>
+                                <action selector="cancel:" destination="cDb-hS-5SE" id="HYd-xD-YvF"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="GUT-Fo-bG0">
                             <connections>
                                 <action selector="saveStudent" destination="cDb-hS-5SE" id="emM-Ow-bAy"/>

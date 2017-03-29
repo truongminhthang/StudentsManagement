@@ -41,12 +41,26 @@ class StudentDetailsTableVC: UITableViewController {
     @IBAction func saveStudent() {
         if let newStudent =  Student(name: nameTextField.text ?? "", phoneNumber: phoneNumberTextField.text ?? "", image: chosenImage) {
             DataServices.shared.appendStudent(student: newStudent)
-            navigationController?.popViewController(animated: true)
-            self.dismiss(animated: true, completion: nil)
+            cancel(UIBarButtonItem())
         } else {
             showWrongDataAlert()
         }
         
+    }
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddMealMode {
+            dismiss(animated: true, completion: nil)
+        }
+        else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The MealViewController is not inside a navigation controller.")
+        }
     }
     
     func showWrongDataAlert() {
@@ -109,7 +123,7 @@ extension StudentDetailsTableVC: UIImagePickerControllerDelegate, UINavigationCo
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        chosenImage = info[UIImagePickerControllerEditedImage] as! UIImage //2
+        chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage //2
         dismiss(animated:true, completion: nil) //5
     }
     
