@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 
 class DataServices {
     static let shared : DataServices = DataServices()
@@ -17,7 +18,7 @@ class DataServices {
             if _students == nil {
                 updateStudents()
             }
-            return _students!
+            return _students ?? []
         }
         set {
             _students = newValue
@@ -25,23 +26,31 @@ class DataServices {
     }
     
     func updateStudents() {
-        _students = []
-       
+        _students = NSKeyedUnarchiver.unarchiveObject(withFile: Student.ArchiveURL.path) as? [Student]
+    }
+    
+    private func saveStudents() {
+        guard _students != nil else { return }
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(_students!, toFile: Student.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Student successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save Student...", log: OSLog.default, type: .error)
+        }
     }
     
     func removeStudent(at index: Int) {
         _students?.remove(at: index)
-    }
-    
-    func swapStudent(from: Int, to: Int) {
-        guard from != to else {return}
-        guard _students != nil else {return}
-        swap(&_students![from], &_students![to])
+        saveStudents()
     }
     
     func appendStudent(student: Student?) {
         guard student != nil else {return}
+        if _students == nil {
+            _students = []
+        }
         _students?.insert(student!, at: 0)
+        saveStudents()
     }
     
 }

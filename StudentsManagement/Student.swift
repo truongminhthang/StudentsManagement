@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Student: NSObject {
+class Student: NSObject, NSCoding {
     
     var name: String
     var phoneNumber: String
@@ -31,6 +31,32 @@ class Student: NSObject {
         self.phoneNumber = phoneNumberTrimmed
         self.image = image
     }
+    
+    static var DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("students")
+    
+    
+    struct PropertyKey {
+        static let name = "name"
+        static let phoneNumber = "phoneNumber"
+        static let image = "image"
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: PropertyKey.name)
+        aCoder.encode(phoneNumber, forKey: PropertyKey.phoneNumber)
+        aCoder.encode(image, forKey: PropertyKey.image)
+
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObject(forKey: PropertyKey.name) as! String
+        let phoneNumber = aDecoder.decodeObject(forKey: PropertyKey.phoneNumber) as! String
+        let image = aDecoder.decodeObject(forKey: PropertyKey.image) as? UIImage
+        self.init(name: name, phoneNumber: phoneNumber, image: image)
+    }
+    
+    
     
 }
 
