@@ -9,6 +9,8 @@
 import UIKit
 
 class StudentDetailsTableVC: UITableViewController {
+    
+    var selectedStudentIndex: Int?
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var chosenImageView: ImageView! {
@@ -25,7 +27,12 @@ class StudentDetailsTableVC: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if let index = selectedStudentIndex {
+            let student = DataServices.shared.students[index]
+            nameTextField.text = student.name
+            phoneNumberTextField.text = student.phoneNumber
+            chosenImage = student.image
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -39,12 +46,17 @@ class StudentDetailsTableVC: UITableViewController {
     }
     
     @IBAction func saveStudent() {
-        if let newStudent =  Student(name: nameTextField.text ?? "", phoneNumber: phoneNumberTextField.text ?? "", image: chosenImage) {
-            DataServices.shared.appendStudent(student: newStudent)
-            cancel(UIBarButtonItem())
-        } else {
-            showWrongDataAlert()
-        }
+            if let newStudent =  Student(name: nameTextField.text ?? "", phoneNumber: phoneNumberTextField.text ?? "", image: chosenImage) {
+                cancel(UIBarButtonItem())
+                if selectedStudentIndex == nil {
+                    DataServices.shared.appendStudent(student: newStudent)
+                } else {
+                    DataServices.shared.replace(student: newStudent, at: selectedStudentIndex!)
+                }
+
+            } else {
+                showWrongDataAlert()
+            }
         
     }
     

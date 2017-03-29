@@ -79,6 +79,7 @@
                                     <outlet property="avatarView" destination="z5z-es-Ysy" id="yH0-Tv-GKq"/>
                                     <outlet property="nameLabel" destination="FTI-8M-kr6" id="w22-5g-OPk"/>
                                     <outlet property="phoneNumberLabel" destination="ETN-l3-Qpz" id="hEH-yk-pni"/>
+                                    <segue destination="cDb-hS-5SE" kind="show" identifier="showDetails" id="j0B-hp-mfu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -286,4 +287,7 @@
     <resources>
         <image name="AvatarDefault" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="j0B-hp-mfu"/>
+    </inferredMetricsTieBreakers>
 </document>

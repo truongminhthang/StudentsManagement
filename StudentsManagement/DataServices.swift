@@ -53,6 +53,11 @@ class DataServices {
         saveStudents()
     }
     
+    func replace(student: Student, at index: Int) {
+        _students![index] = student
+        saveStudents()
+    }
+    
 }
 
 

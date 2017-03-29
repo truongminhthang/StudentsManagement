@@ -86,14 +86,29 @@ class StudentsTableViewController: UITableViewController {
         }
     }
     
-    /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier ?? "" {
+        case "showDetails":
+            guard let studentDetailsVC = segue.destination as? StudentDetailsTableVC    else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedStudentCell = sender as? StudentCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedStudentCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            studentDetailsVC.selectedStudentIndex = indexPath.row
+        default:
+            return
+        }
+    }
     
 }
