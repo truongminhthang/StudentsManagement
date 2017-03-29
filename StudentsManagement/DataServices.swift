@@ -26,10 +26,7 @@ class DataServices {
     
     func updateStudents() {
         _students = []
-        for i in Array (0 ... 100) {
-            guard let student = Student(name: "Name \(i)", phoneNumber: "012391801\(i)") else {continue}
-            _students?.append(student)
-        }
+       
     }
     
     func removeStudent(at index: Int) {

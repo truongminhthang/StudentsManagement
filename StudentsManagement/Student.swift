@@ -6,14 +6,15 @@
 //  Copyright © 2017 Trương Thắng. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Student: NSObject {
     
     var name: String
     var phoneNumber: String
+    var image: UIImage?
     
-    init?(name: String, phoneNumber: String) {
+    init?(name: String, phoneNumber: String, image: UIImage?) {
         guard name != "" else {return nil}
         var isNameHaveNumber : Bool = false
         for str in name.characters.map({String($0)}) {
@@ -23,10 +24,12 @@ class Student: NSObject {
             }
         }
         guard isNameHaveNumber == false  else { return nil }
-        guard [10,11].contains(phoneNumber.characters.count) else { return nil}
-        guard Int(phoneNumber) != nil else {return nil}
+        let phoneNumberTrimmed = phoneNumber.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard [10,11].contains(phoneNumberTrimmed.characters.count) else { return nil}
+        guard Int(phoneNumberTrimmed) != nil else {return nil}
         self.name = name
-        self.phoneNumber = phoneNumber
+        self.phoneNumber = phoneNumberTrimmed
+        self.image = image
     }
     
 }

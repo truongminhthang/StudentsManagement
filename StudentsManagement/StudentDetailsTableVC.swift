@@ -11,7 +11,18 @@ import UIKit
 class StudentDetailsTableVC: UITableViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var chosenImageView: ImageView! {
+        didSet {
+            chosenImageView.contentMode = .scaleAspectFill
+            chosenImageView.borderColor = .gray
+        }
+    }
     
+    var chosenImage: UIImage? {
+        didSet {
+            chosenImageView.image = chosenImage
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,9 +39,10 @@ class StudentDetailsTableVC: UITableViewController {
     }
     
     @IBAction func saveStudent() {
-        if let newStudent =  Student(name: nameTextField.text ?? "", phoneNumber: phoneNumberTextField.text ?? "") {
+        if let newStudent =  Student(name: nameTextField.text ?? "", phoneNumber: phoneNumberTextField.text ?? "", image: chosenImage) {
             DataServices.shared.appendStudent(student: newStudent)
             navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         } else {
             showWrongDataAlert()
         }
@@ -47,62 +59,58 @@ class StudentDetailsTableVC: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    // MARK: - Table view data source
+    @IBAction func addImage(_ sender: Any) {
+    
+        let title = "Action sheet"
+        let message = "What would you like to do? "
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Pick Photo", style: .default, handler: pickPhoto))
+        
+        alert.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: takePhoto))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func takePhoto(action: UIAlertAction) -> Void {
+        unowned let weakself = self
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = weakself as UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
+            imagePicker.allowsEditing = true
+            weakself.present(imagePicker, animated: true, completion: nil)
+        } else {
+            
+        }
+    }
+    
+    func pickPhoto(action: UIAlertAction) -> Void {
+        unowned let weakself = self
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = weakself as UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+        imagePicker.allowsEditing = true
+        weakself.present(imagePicker, animated: true, completion: nil)
+    }
     
     
-    /*
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-     
-     // Configure the cell...
-     
-     return cell
-     }
-     */
+}
+
+// MARK: - UIImagePickerControllerDelegate
+
+extension StudentDetailsTableVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // Dismiss the picker if the user canceled.
+        dismiss(animated: true, completion: nil)
+    }
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        chosenImage = info[UIImagePickerControllerEditedImage] as! UIImage //2
+        dismiss(animated:true, completion: nil) //5
+    }
     
 }

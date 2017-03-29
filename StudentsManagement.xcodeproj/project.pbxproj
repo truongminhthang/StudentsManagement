@@ -18,6 +18,9 @@
 		FF1789DB1E8932A10009F8C8 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1789DA1E8932A10009F8C8 /* Student.swift */; };
 		FF1789E31E89337C0009F8C8 /* StudentsManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1789E21E89337C0009F8C8 /* StudentsManagementTests.swift */; };
 		FF1789EA1E8933BE0009F8C8 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1789DA1E8932A10009F8C8 /* Student.swift */; };
+		FF281D491E89FFF3006F146C /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF281D481E89FFF3006F146C /* Button.swift */; };
+		FF76659C1E8B6B8C00E4DF94 /* StudentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF76659B1E8B6B8C00E4DF94 /* StudentCell.swift */; };
+		FF9C1CFB1E8B2C780081847C /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C1CFA1E8B2C780081847C /* ImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		FF1789E01E89337C0009F8C8 /* StudentsManagementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudentsManagementTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF1789E21E89337C0009F8C8 /* StudentsManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsManagementTests.swift; sourceTree = "<group>"; };
 		FF1789E41E89337C0009F8C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF281D481E89FFF3006F146C /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		FF76659B1E8B6B8C00E4DF94 /* StudentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentCell.swift; sourceTree = "<group>"; };
+		FF9C1CFA1E8B2C780081847C /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,8 @@
 				FF1789BF1E8926D20009F8C8 /* StudentsManagement.xcdatamodeld */,
 				FF1789C41E8926D20009F8C8 /* LaunchScreen.storyboard */,
 				FF1789C71E8926D20009F8C8 /* Info.plist */,
+				FF281D481E89FFF3006F146C /* Button.swift */,
+				FF9C1CFA1E8B2C780081847C /* ImageView.swift */,
 			);
 			path = StudentsManagement;
 			sourceTree = "<group>";
@@ -104,6 +112,7 @@
 			children = (
 				FF1789D61E892F620009F8C8 /* StudentsTableViewController.swift */,
 				FF0B2A7D1E89428D00A2A111 /* StudentDetailsTableVC.swift */,
+				FF76659B1E8B6B8C00E4DF94 /* StudentCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -238,7 +247,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF9C1CFB1E8B2C780081847C /* ImageView.swift in Sources */,
+				FF281D491E89FFF3006F146C /* Button.swift in Sources */,
 				FF1789B91E8926D20009F8C8 /* AppDelegate.swift in Sources */,
+				FF76659C1E8B6B8C00E4DF94 /* StudentCell.swift in Sources */,
 				FF1789D91E89311E0009F8C8 /* DataServices.swift in Sources */,
 				FF1789C11E8926D20009F8C8 /* StudentsManagement.xcdatamodeld in Sources */,
 				FF1789DB1E8932A10009F8C8 /* Student.swift in Sources */,
@@ -387,6 +399,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 56AJJ634ZU;
 				INFOPLIST_FILE = StudentsManagement/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Big0.StudentsManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -400,6 +413,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 56AJJ634ZU;
 				INFOPLIST_FILE = StudentsManagement/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Big0.StudentsManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";

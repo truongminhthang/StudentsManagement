@@ -40,11 +40,11 @@ class StudentsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell" , for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell" , for: indexPath) as! StudentCell
         let student = DataServices.shared.students[indexPath.row]
-        cell.textLabel?.text = student.name
-        cell.detailTextLabel?.text = student.phoneNumber
-        // Configure the cell...
+        cell.nameLabel.text = student.name
+        cell.phoneNumberLabel.text = student.phoneNumber
+        cell.avatarView.image = student.image
         return cell
     }
     
